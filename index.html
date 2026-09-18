@@ -16610,6 +16610,43 @@ tabsEl.querySelectorAll('.tab').forEach(function(t){
 });
 updateSidebar(currentTab);
 renderCourse();
+  
+// ===== МОБИЛЬНОЕ МЕНЮ =====
+const menuBtn = document.getElementById('menuBtn');
+const sidebar = document.getElementById('sidebar');
+const overlay = document.getElementById('overlay');
+
+function openMobileMenu(){
+  sidebar.classList.add('open');
+  overlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeMobileMenu(){
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+if(menuBtn){
+  menuBtn.addEventListener('click', function(){
+    if(sidebar.classList.contains('open')){ closeMobileMenu(); }
+    else { openMobileMenu(); }
+  });
+}
+if(overlay){ overlay.addEventListener('click', closeMobileMenu); }
+tabsEl.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click', closeMobileMenu);
+});
+
+// ===== SERVICE WORKER =====
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js').catch((err) => {
+      console.log('SW registration failed:', err);
+    });
+  });
+}
 </script>
 </body>
 </html>
