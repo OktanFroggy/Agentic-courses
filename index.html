@@ -47,14 +47,17 @@
     -webkit-user-select:none; user-select:none;
   }
   .menu-btn:active{background:#2a3140}
-  .tabs{
-    display:flex; gap:6px; padding:10px 12px;
-    background:rgba(15,17,21,.95); backdrop-filter:blur(8px);
+    .tabs{
+    display:flex; gap:6px;
+    padding:10px 14px;
+    background:rgba(15,17,21,.95);
+    backdrop-filter:blur(8px);
     position:sticky; top:60px; z-index:20;
     border-bottom:1px solid var(--border);
     overflow-x:auto; overflow-y:hidden;
     -webkit-overflow-scrolling:touch;
     scrollbar-width:none;
+    justify-content:flex-start;
   }
   .tabs::-webkit-scrollbar{display:none}
   .tab{
