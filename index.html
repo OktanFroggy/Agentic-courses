@@ -205,11 +205,12 @@
   .check{list-style:none;margin-left:0}
   .check li{padding-left:28px;position:relative;cursor:pointer; font-size:14.5px}
   .check li::before{
-    content:"\u2610";position:absolute;left:0;color:var(--accent);
+    .check li::before{
+    content:"☐";position:absolute;left:0;color:var(--accent);
     font-size:18px;
   }
   .check li[data-done="1"]{text-decoration:line-through;opacity:.55}
-  .check li[data-done="1"]::before{content:"\u2611";color:var(--accent2)}
+  .check li[data-done="1"]::before{content:"☑";color:var(--accent2)}
   .pager{
     display:flex; justify-content:space-between; gap:10px;
     margin-top:26px; padding-top:16px; border-top:1px solid var(--border);
